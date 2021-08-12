@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/master-page}">
+<meta charset="UTF-8">
+<title>Les clients</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div class="row" style="margin-bottom: 10px">
+        <div class="col-md-6">
+            <h1 style="color: darkblue">Page de confirmation</h1>
+        </div>
+    </div>
+    <div class="print_div">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Details
+        </button>
+        <div class="modal fade bd-example-modal-xl" id="exampleModalCenter" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-body" id="printableArea">
+                        <div class="container-fluid">
+                            <div class="row" >
+                                <div class="col-md-2">Passeger</div>
+                                <div class="col-md-3 ml-auto">
+                                    Mr<td class="font-weight-bold"th:text="${passenger.firstName+' '+passenger.lastName}"></td>
+                                </div>
+                                <div class="col-md-3 ml-auto" ><i class="font-weight-bold">aireline<br><br> Numero <br> Fax <br> Email</i></div>
+                                <div class="col-md-4 ml-auto">RIMAIRE <br>Rue ndb Tvz<br> +222 20 20 18 17 <br>+222
+                                    20 20 18 17 <br> aireline@aireline.com
+                                </div>
+                            </div>
+
+                            <i class="font-weight-bold">Mardi, le 22 juin 2021</i>
+                            <div class="row">
+                                <div class="col-md-2"><i class="fa fa-plane" aria-hidden="true"></i></div>
+                                <div class="row">
+                                    <table>
+                                        <th><i class="font-weight-bold">E-Ticket  <td th:text="${passenger.flight.flightNumber}"></td></i></th>
+                                        <tr>
+                                            <td>Depart:</td>
+                                            <td th:text="${passenger.flight.departureDate+' '+passenger.flight.departureTime}"></td>
+                                            <td th:text="${passenger.flight.departureAirport.city+' , '+passenger.flight.departureAirport.airportName}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Arrive:<td th:text="${passenger.flight.arrivalDate+' '+passenger.flight.arrivalTime}"></td></td>
+                                            <td th:text="${passenger.flight.destinationAirport.city+' , '+passenger.flight.destinationAirport.airportName}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Duration</td>
+                                            <td></td>
+                                            <td>02:55 (non stop)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Class</td>
+                                            <td></td>
+                                            <td th:text="${passenger.classe}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Status du reservation</td>
+                                            <td></td>
+                                            <td>Confirme</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Baguage</td>
+                                            <td></td>
+                                            <td>2 Piece(s) pour Mr :
+                                            <td th:text="${passenger.firstName}"></td>
+                                            <td th:text="${passenger.lastName}"></td></td>
+                                        </tr><tr>
+                                        <td>Fin de Checkin</td>
+                                        <td></td>
+                                        <td th:text="${passenger.flight.departureTime}"></td>
+                                    </tr><tr>
+                                        <td>Equipement</td>
+                                        <td></td>
+                                        <td th:text="${passenger.flight.aircraft.model}"></td>
+                                    </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <i class="font-weight-bold">détails du billet</i>
+                                <div><br> E-Ticket A 147 -3815646482 Pour Mr
+                                    <td th:text="${passenger.firstName}"></td>
+                                    <td th:text="${passenger.lastName}"></td>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <i class="font-weight-bold">Information Ecologique</i>
+                                    <br>émission moyenne de co2 calculée 169,69 kg/personne
+                                    <br>Source: Calculateur d'émissions de carbone de l'OACI
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <i class="font-weight-bold">Référence(s) de réservation de la compagnie aérienne</i>
+                                    <br>AT (RimAire Pays Ville): TKBHVSD
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <i class="font-weight-bold">avis de protection </i>
+                                    <br>Les données personnelles au sens de cette politique de confidentialité sont toutes les informations individuelles relatives à votre situation personnelle ou matérielle. Cela comprend notamment votre nom, votre date de naissance, votre adresse e-mail, votre adresse et votre numéro de téléphone.
+                                    Les données personnelles au sens de cette politique de confidentialité comprennent également des informations sur votre utilisation de notre site Web (« données d'accès »). En plus des données d'accès, les données personnelles ne sont stockées par nous que lorsque vous nous fournissez librement ces informations, par ex. dans le cadre d'une inscription, d'un sondage, d'un concours, d'une demande de contact, d'un abonnement à une newsletter ou pour effectuer une commande en ligne. Les données personnelles ne sont également traitées que dans la mesure nécessaire et uniquement aux fins pour lesquelles vous avez donné votre consentement ou à des fins légalement autorisées.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="font-weight-bold">merci d'avoir fait de nous votre compagnie aérienne de choix
+                            bon vol</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1>RimAir VersionSpring</h1>
+    <hr>
+    <div style="background-color: yellow; padding: 10px">
+        <h3>Flight Id: <span th:text="${passenger.flight.flightId}"></span></h3>
+        <h3>Passenger Id: <span th:text="${passenger.passengerId}"></span></h3>
+    </div>
+    <hr>
+    <h3>informations concernant le client</h3>
+    <table class="table table-hover">
+        <thead>
+        <tr class="table-active">
+            <th scope="col">ID</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom de famille</th>
+            <th scope="col">Numbero Tel</th>
+            <th scope="col">Numbero du Passport </th>
+            <th scope="col">Email</th>
+            <th scope="col">Classe</th>
+        </tr>
+        </thead>
+        <tbody>
+        <div th:each="airport, iterStat:${passenger}">
+            <tr style="background-color: #fdfdfd">
+                <th scope="row" th:text="${passenger.passengerId}">Dark</th>
+                <td th:text="${passenger.firstName}"></td>
+                <td th:text="${passenger.lastName}"></td>
+                <td th:text="${passenger.phoneNumber}"></td>
+                <td th:text="${passenger.passportNumber}"></td>
+                <td th:text="${passenger.email}"></td>
+                <td th:text="${passenger.classe}"></td>
+        </div>
+        </tbody>
+    </table>
+    <hr>
+    <h3>Informations sur le vol</h3>
+    <table class="table table-sm">
+        <thead>
+        <tr class="table-active">
+            <th scope="col">Numéro de vol</th>
+            <th scope="col">De</th>
+            <th scope="col">A</th>
+            <th scope="col">Départ</th>
+            <th scope="col">Arrivée</th>
+            <th scope="col">Frais de vol</th>
+            <th scope="col">Avion</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr style="background-color: #fdfdfd">
+
+            <td th:text="${passenger.flight.flightNumber}"></td>
+            <td th:text="${passenger.flight.departureAirport.airportName}"></td>
+            <td th:text="${passenger.flight.destinationAirport.airportName}"></td>
+            <td th:text="${passenger.flight.departureDate+' '+passenger.flight.departureTime}"></td>
+            <td th:text="${passenger.flight.arrivalDate+' '+passenger.flight.arrivalTime}"></td>
+            <td th:text="${passenger.flight.flightCharge}"></td>
+            <td th:text="${passenger.flight.aircraft.model}"></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</th:block>
+</body>
+</html>

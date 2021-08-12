@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/master-page}">
+
+<body>
+<th:block layout:fragment="content">
+
+    <h2>Bienvenue sur le site Web de RimAir !</h2>
+    <p>
+        RimAir est une société de réservation de compagnies aériennes. Il a un certain nombre de succursales réparties à travers le monde.
+        Une personne qui souhaite réserver un billet d'avion doit contacter l'une des succursales Aero Travels les plus proches.
+        Aero Travels gère les opérations de vol manuellement, mais à mesure que le nombre de ses clients augmente, la gestion manuelle des opérations de vol devient difficile et prend du temps.
+        Il serait donc préférable d'utiliser un système automatisé. La réservation de billets d'avion (FTB) offre une solution de réservation de billets d'avion en ligne.
+        Il aura des fonctionnalités telles que planifier des vols, rechercher un vol, réserver un vol pour les clients et vérifier le billet d'avion. Le système doit être pratique et convivial.
+
+        Les utilisateurs comprennent :
+        1. Administrateur qui peut ajouter un vol, annuler un vol, ajouter un avion, supprimer un avion et ajouter un aéroport.
+        2. Les agents de voyages qui peuvent rechercher un vol, réserver un vol ou annuler une réservation pour le client.
+        3. Les clients qui peuvent rechercher des vols et vérifier leur billet dans le système.
+
+        Les informations client comprennent le prénom, le nom, la date de naissance, le sexe, le numéro de téléphone et l'adresse.
+
+        Un aéroport a un certain nombre d'avions. Un avion a un identifiant, un fabricant, un modèle et un type. Un vol a un avion, un numéro de vol, une heure de départ, un aéroport de départ, un aéroport d'arrivée, une heure d'arrivée et des frais de vol. Un vol a également une liste de passagers (clients) qui est réservée et cochée pour ce vol.</p>
+    <img th:src="@{/img/airplane.jpg}" style="width:300px"/>
+</th:block>
+</body>
+</html>

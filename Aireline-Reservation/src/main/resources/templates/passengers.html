@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/master-page}">
+<meta charset="UTF-8">
+<title>Les clients</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div class="row" style="margin-bottom: 10px">
+        <div class="col-md-12">
+            <h1 style="color: darkblue">Liste des passagers pour le vol <span th:text="${flight.flightNumber}"></span></h1>
+        </div>
+
+    </div>
+    <table class="table table-sm">
+        <thead>
+        <tr class="table-active">
+            <th scope="col">ID</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom de famille</th>
+            <th scope="col">Numbero Tel</th>
+            <th scope="col">Numéro de passeport</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <div th:each="passenger, iterStat:${passengers}">
+            <tr style="background-color: #fdfdfd">
+                <th scope="row" th:text="${passenger.passengerId}">Dark</th>
+                <td th:text="${passenger.firstName}"></td>
+                <td th:text="${passenger.lastName}"></td>
+                <td th:text="${passenger.phoneNumber}"></td>
+                <td th:text="${passenger.passportNumber}"></td>
+                <td th:text="${passenger.email}"></td>
+                <td th:text="${passenger.address}"></td>
+
+            </tr>
+        </div>
+        </tbody>
+    </table>
+
+</th:block>
+</body>
+</html>
